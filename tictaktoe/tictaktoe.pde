@@ -4,11 +4,12 @@ void setup() {
   size(500, 600);
   quitButtonSetup();
   textSetup();
+  gui_setup();
 }
 
 void draw() {
   quitButtonDraw();
-  gui_setup();
+  
 }
 
 void keyPressed() {

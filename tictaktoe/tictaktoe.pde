@@ -1,8 +1,19 @@
-//global variable
-void setup(){}
+//Global Variables
 
-void draw(){}
+void setup() {
+  size(500, 600);
+  quitButtonSetup();
+  textSetup();
+}
 
-void keyPressed(){}
+void draw() {
+  quitButtonDraw();
+  gui_setup();
+}
 
-void mousePressed(){}
+void keyPressed() {
+}
+
+void mousePressed() {
+  quitButtonMouseClicked();
+}

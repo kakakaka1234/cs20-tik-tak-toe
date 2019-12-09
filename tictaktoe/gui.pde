@@ -4,8 +4,9 @@ float  boardx1,boardy1,boardwidth1,boardheight1 ,
 boardx2,boardy2,boardwidth2,boardheight2,boardx3,boardy3,boardwidth3,boardheight3,boardx4,boardy4,boardwidth4,boardheight4
 ,boardx5,boardy5,boardwidth5,boardheight5,boardx6,boardy6,boardwidth6,boardheight6,
 boardx7,boardy7,boardwidth7,boardheight7,boardx8,boardy8,boardwidth8,boardheight8,
-boardx9,boardy9,boardwidth9,boardheight9
-;
+boardx9,boardy9,boardwidth9,boardheight9,diffex,diffey,diffewidth,diffeheight,diffmx,diffmy,diffmwidth,diffmheight
+,diffix,diffiy,diffiwidth,diffiheight,darkx,darky,darkwidth,darkheight;
+float resetx,resety,resetwidth,resetheight;
 
 void gui_setup(){
   headerx= width/10;
@@ -62,6 +63,32 @@ void gui_setup(){
   boardy9=boardy+ boardheight/3 + boardheight/3;
   boardwidth9=boardwidth/3;
   boardheight9=boardheight/3;
+  //
+  diffex=0;
+  diffey=boardy7+boardheight7;
+  diffewidth= width/4;
+  diffeheight= height-(boardy7+boardheight7);
+  //
+   diffmx=width/4;
+  diffmy=boardy7+boardheight7;
+  diffmwidth=diffewidth ;
+  diffmheight= height-(boardy7+boardheight7);
+  //
+  diffix=width/4+width/4;
+  diffiy=boardy7+boardheight7;
+  diffiwidth=diffewidth ;
+  diffiheight=height-(boardy7+boardheight7);
+  //
+  darkx=width/4+width/4+width/4;
+  darky=boardy7+boardheight7;
+  darkwidth=diffewidth ;
+  darkheight=height-(boardy7+boardheight7);
+  //
+  resetx=0;
+  resety=0;
+  resetwidth= width/20;
+  resetheight=height/20;
+  //
 rect(headerx,headery,headerwidth,headerheight);
 rect(boardx,boardy,boardwidth,boardheight);
 rect(boardx1,boardy1,boardwidth1,boardheight1);
@@ -73,4 +100,10 @@ rect(boardx6,boardy6,boardwidth6,boardheight6);
 rect(boardx7,boardy7,boardwidth7,boardheight7);
 rect(boardx8,boardy8,boardwidth8,boardheight8);
 rect(boardx9,boardy9,boardwidth9,boardheight9);
+rect(diffex,diffey,diffewidth,diffeheight);
+rect(diffmx,diffmy,diffmwidth,diffmheight);
+rect(diffix,diffiy,diffiwidth,diffiheight);
+rect(darkx,darky,darkwidth,darkheight);
+rect(resetx,resety,resetwidth,resetheight);
+
 }

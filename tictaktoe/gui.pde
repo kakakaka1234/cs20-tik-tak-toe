@@ -6,7 +6,11 @@ boardx2,boardy2,boardwidth2,boardheight2,boardx3,boardy3,boardwidth3,boardheight
 boardx7,boardy7,boardwidth7,boardheight7,boardx8,boardy8,boardwidth8,boardheight8,
 boardx9,boardy9,boardwidth9,boardheight9,diffex,diffey,diffewidth,diffeheight,diffmx,diffmy,diffmwidth,diffmheight
 ,diffix,diffiy,diffiwidth,diffiheight,darkx,darky,darkwidth,darkheight;
-float resetx,resety,resetwidth,resetheight;
+float resetx,resety,resetwidth,resetheight,tttx,ttty,tttwidth,tttheight;
+float playerx,playery,playerwidth,playerheight;
+float check1x,check1y,check1width,check1height;
+float check2x,check2y,check2width,check2height;
+
 
 void gui_setup(){
   headerx= width/10;
@@ -89,6 +93,27 @@ void gui_setup(){
   resetwidth= width/20;
   resetheight=height/20;
   //
+  tttx= headerx;
+  ttty= headery;
+  tttwidth= headerwidth;
+  tttheight= headerheight*2/3;
+  //
+  playerx=headerx;
+  playery=headerheight*2/3;
+  playerwidth=headerwidth;
+  playerheight=headerheight/3;
+  //
+  check1x= 0;
+  check1y= boardx4;
+  check1width=boardx/2;
+  check1height=boardwidth4;
+  //
+    check2x= width-(check1width+boardwidth);
+  check2y=  boardx4;
+  check2width=boardx/2;
+  check2height=boardwidth4;
+  
+  
 rect(headerx,headery,headerwidth,headerheight);
 rect(boardx,boardy,boardwidth,boardheight);
 rect(boardx1,boardy1,boardwidth1,boardheight1);
@@ -105,5 +130,11 @@ rect(diffmx,diffmy,diffmwidth,diffmheight);
 rect(diffix,diffiy,diffiwidth,diffiheight);
 rect(darkx,darky,darkwidth,darkheight);
 rect(resetx,resety,resetwidth,resetheight);
+rect(tttx,ttty,tttwidth,tttheight);
+rect(playerx,playery,playerwidth,playerheight);
+rect(check1x,check1y,check1width,check1height);
+rect(check2x,check2y,check2width,check2height);
+
+
 
 }

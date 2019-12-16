@@ -104,14 +104,14 @@ void gui_setup(){
   playerheight=headerheight/3;
   //
   check1x= 0;
-  check1y= boardx4;
-  check1width=boardx/2;
-  check1height=boardwidth4;
+  check1y= boardy4;
+  check1width=(width-boardwidth)/2;
+  check1height=boardheight4;
   //
-    check2x= width-(check1width+boardwidth);
-  check2y=  boardx4;
-  check2width=boardx/2;
-  check2height=boardwidth4;
+   check2x= check1width+boardwidth;
+  check2y=  boardy4;
+ check2width=(width-boardwidth)/2;
+  check2height=boardheight4;
   
   
 rect(headerx,headery,headerwidth,headerheight);

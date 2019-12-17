@@ -1,140 +1,96 @@
-float headerx,headery,headerwidth,headerheight;
-float boardx,boardy,boardwidth,boardheight;
-float  boardx1,boardy1,boardwidth1,boardheight1 ,
-boardx2,boardy2,boardwidth2,boardheight2,boardx3,boardy3,boardwidth3,boardheight3,boardx4,boardy4,boardwidth4,boardheight4
-,boardx5,boardy5,boardwidth5,boardheight5,boardx6,boardy6,boardwidth6,boardheight6,
-boardx7,boardy7,boardwidth7,boardheight7,boardx8,boardy8,boardwidth8,boardheight8,
-boardx9,boardy9,boardwidth9,boardheight9,diffex,diffey,diffewidth,diffeheight,diffmx,diffmy,diffmwidth,diffmheight
-,diffix,diffiy,diffiwidth,diffiheight,darkx,darky,darkwidth,darkheight;
-float resetx,resety,resetwidth,resetheight,tttx,ttty,tttwidth,tttheight;
-float playerx,playery,playerwidth,playerheight;
-float check1x,check1y,check1width,check1height;
-float check2x,check2y,check2width,check2height;
+//Global Varaibles
+float headerX, headerY, headerWidth, headerHeight;
+float boardX, boardY, BoardWith, BoardHeight;
+float spaceWidth, spaceHeight;
+float[] spaceX = new float[9];
+float[] spaceY = new float[9];
+float lineAX1, lineAY1, lineBX1, lineBY1;
+float lineAX2, lineAY2, lineBX2, lineBY2;
+float lineAX3, lineAY3, lineBX3, lineBY3;
+float lineAX4, lineAY4, lineBX4, lineBY4;
+float resetX, resetY, resetWidth, resetHeight;
+float scoreA, scoreB, scoreWidth, scoreHeight, scoreAX, scoreBX;
+float scoreAO, scoreBO, scoreWidthXO, scoreHeightXO;
+float darkX, darkY, darkWidth, darkHeight;
+float easyX, easyY, easyWidth, easyHeight;
+float mediumX, mediumY, mediumWidth, mediumHeight;
+float impossibleX, impossibleY, impossibleWidth, impossibleHeight;
+float scoreXnameX, scoreYnameX, scoreXvarX, scoreYvarX;
+float scoreXnameO, scoreYnameO, scoreXvarO, scoreYvarO;
 
+void GUI_setup() {
+  background(white);
+  headerX = width*0;
+  headerY = height*0;
+  headerWidth = width;
+  headerHeight = height * 1/4;
 
-void gui_setup(){
-  headerx= width/10;
-  headery=height*0;
-  headerwidth=width*8/10;
-  headerheight=height/5;
-  
-  boardx= width/10;
-  boardy= height*2.5/10;
-  boardwidth= width*8/10;
-  boardheight= height*6/10;
-  
-  boardx1=boardx;
-  boardy1=boardy;
-  boardwidth1=boardwidth/3;
-  boardheight1=boardheight/3;
-  //
-  boardx2=boardx + boardwidth/3;
-  boardy2=boardy;
-  boardwidth2=boardwidth/3;
-  boardheight2=boardheight/3;
-  //
-  boardx3=boardx + boardwidth/3 + boardwidth/3;
-  boardy3=boardy;
-  boardwidth3=boardwidth/3;
-  boardheight3=boardheight/3;
-  //
-  boardx4=boardx;
-  boardy4=boardy+ boardheight/3;
-  boardwidth4=boardwidth/3;
-  boardheight4=boardheight/3;
-  //
-  boardx5=boardx+ boardwidth/3;
-  boardy5=boardy+ boardheight/3;
-  boardwidth5=boardwidth/3;
-  boardheight5=boardheight/3;
-  //
-  boardx6=boardx+ boardwidth/3 + boardwidth/3;
-  boardy6=boardy+ boardheight/3;
-  boardwidth6=boardwidth/3;
-  boardheight6=boardheight/3;
-  //
-  boardx7=boardx;
-  boardy7=boardy+ boardheight/3 + boardheight/3;
-  boardwidth7=boardwidth/3;
-  boardheight7=boardheight/3;
-  //
-  boardx8=boardx+boardwidth/3;
-  boardy8=boardy+ boardheight/3 + boardheight/3;
-  boardwidth8=boardwidth/3;
-  boardheight8=boardheight/3;
-  //
-  boardx9=boardx+boardwidth/3 +boardwidth/3;
-  boardy9=boardy+ boardheight/3 + boardheight/3;
-  boardwidth9=boardwidth/3;
-  boardheight9=boardheight/3;
-  //
-  diffex=0;
-  diffey=boardy7+boardheight7;
-  diffewidth= width/4;
-  diffeheight= height-(boardy7+boardheight7);
-  //
-   diffmx=width/4;
-  diffmy=boardy7+boardheight7;
-  diffmwidth=diffewidth ;
-  diffmheight= height-(boardy7+boardheight7);
-  //
-  diffix=width/4+width/4;
-  diffiy=boardy7+boardheight7;
-  diffiwidth=diffewidth ;
-  diffiheight=height-(boardy7+boardheight7);
-  //
-  darkx=width/4+width/4+width/4;
-  darky=boardy7+boardheight7;
-  darkwidth=diffewidth ;
-  darkheight=height-(boardy7+boardheight7);
-  //
-  resetx=0;
-  resety=0;
-  resetwidth= width/20;
-  resetheight=height/20;
-  //
-  tttx= headerx;
-  ttty= headery;
-  tttwidth= headerwidth;
-  tttheight= headerheight*2/3;
-  //
-  playerx=headerx;
-  playery=headerheight*2/3;
-  playerwidth=headerwidth;
-  playerheight=headerheight/3;
-  //
-  check1x= 0;
-  check1y= boardy4;
-  check1width=(width-boardwidth)/2;
-  check1height=boardheight4;
-  //
-   check2x= check1width+boardwidth;
-  check2y=  boardy4;
- check2width=(width-boardwidth)/2;
-  check2height=boardheight4;
-  
-  
-rect(headerx,headery,headerwidth,headerheight);
-rect(boardx,boardy,boardwidth,boardheight);
-rect(boardx1,boardy1,boardwidth1,boardheight1);
-rect(boardx2,boardy2,boardwidth2,boardheight2);
-rect(boardx3,boardy3,boardwidth3,boardheight3);
-rect(boardx4,boardy4,boardwidth4,boardheight4);
-rect(boardx5,boardy5,boardwidth5,boardheight5);
-rect(boardx6,boardy6,boardwidth6,boardheight6);
-rect(boardx7,boardy7,boardwidth7,boardheight7);
-rect(boardx8,boardy8,boardwidth8,boardheight8);
-rect(boardx9,boardy9,boardwidth9,boardheight9);
-rect(diffex,diffey,diffewidth,diffeheight);
-rect(diffmx,diffmy,diffmwidth,diffmheight);
-rect(diffix,diffiy,diffiwidth,diffiheight);
-rect(darkx,darky,darkwidth,darkheight);
-rect(resetx,resety,resetwidth,resetheight);
-rect(tttx,ttty,tttwidth,tttheight);
-rect(playerx,playery,playerwidth,playerheight);
-rect(check1x,check1y,check1width,check1height);
-rect(check2x,check2y,check2width,check2height);
+  boardX = width * 0;
+  boardY = height * 1/4;
+  BoardWith = width;
+  BoardHeight = height * 3/4;
+  for (int i=0; i<spaceX.length; i=i+3) {
+    spaceX[i] = width * 0; //spaceX1 = spaceX4 = spaceX7 = width * 0;
+  }
+  for (int i=1; i<spaceX.length; i=i+3) {
+    spaceX[i] = width * 1/3; //spaceX2 = spaceX5 = spaceX8 = width * 1/3;
+  }
+  for (int i=2; i<spaceX.length; i=i+3) {
+    spaceX[i] = width * 2/3; //spaceX3 = spaceX6 = spaceX9 = width * 2/3;
+  }
+  for (int i=0; i<4; i++) {
+    spaceY[i] = height * 1/4; //spaceY1 = spaceY2 = spaceY3 = height * 1/4;
+  }
+  for (int i=3; i<6; i++) {
+    spaceY[i] = height * 2/4; //spaceY4 = spaceY5 = spaceY6 = height * 2/4;
+  }
+  for (int i=6; i<9; i++) {
+    spaceY[i] = height * 3/4; //spaceY7 = spaceY8 = spaceY9 = height * 3/4;
+  }
+  spaceWidth = width * 1/3;
+  spaceHeight = height * 1/4;
+  lineAX1 = lineBX1 = width * 1/3;
+  lineAY1 = height * 1/4;
+  lineBY1 = height;
+  lineAX2 = lineBX2 = width * 2/3;
+  lineAY2 = height * 0/4;
+  lineBY2 = height;
+  lineAX3 = width * 0;
+  lineBX3 = width;
+  lineAY3 = lineBY3 = height * 2/4;
+  lineAX4 = width * 0;
+  lineBX4 = width;
+  lineAY4 = lineBY4 = height * 3/4;
+  resetX = width * 0;
+  resetY = height * 4/80;
+  resetWidth = width * 1/4;
+  resetHeight = height * 12/80;
+  scoreA = scoreAX = width * 1/4;
+  scoreAO = width * 5.5/12;
+  scoreB = scoreBX = scoreBO = height * 0;
+  scoreWidth = width * 5/12;
+  scoreWidthXO = width * 2.5/12;
+  scoreHeight = scoreHeightXO = height * 1/4;
+  darkX = easyX = mediumX = impossibleX = width * 2/3;
+  darkY = height * 0;
+  easyY = height * 1/16;
+  mediumY = height * 2/16;
+  impossibleY = height * 3/16;
+  darkWidth = easyWidth = mediumWidth = impossibleWidth = width * 1/3;
+  darkHeight = easyHeight = mediumHeight = impossibleHeight = height * 1/16;
+  scoreXnameX = scoreA;
+  scoreYnameX = scoreYvarX = height * 1/16;
+  scoreXvarX = scoreAX + scoreWidthXO*0.5;
+  scoreXnameO = scoreAO;
+  scoreYnameO = scoreYvarO = height * 1/16;
+  scoreXvarO = scoreAO + scoreWidthXO*0.5;
 
+  lines();
+}
 
-
+void lines() {
+  line(lineAX1, lineAY1, lineBX1, lineBY1);
+  line(lineAX2, lineAY2, lineBX2, lineBY2);
+  line(lineAX3, lineAY3, lineBX3, lineBY3);
+  line(lineAX4, lineAY4, lineBX4, lineBY4);
 }
